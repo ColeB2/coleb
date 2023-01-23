@@ -1,0 +1,432 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html, #root {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: black;
+    /* background-color: white; */
+    /* background-color: #282D35; */
+}
+
+h5 {
+    padding-left: 10;
+    margin-left: 10px;
+    color: white;
+}
+
+
+/* HEADER */
+.portfolio--header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 65px;
+    height: 10vh;
+    width: 100%;
+    margin: 0;
+    padding: 0px 0px 0px 10px;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+}
+ .project--overlay--section{
+    position: absolute;
+    top:0;
+ }
+
+
+/* 
+Project.js css.
+OVERLAY
+Main Clicked on Project Displaying 
+--> Project.js
+*/
+@media only screen and (max-width: 774px) {
+    .project--overlay {
+        background-color: rgb(19,19,19);
+        position: fixed;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+    }
+
+}
+
+@media only screen and (min-width: 775px) {
+    .project--overlay {
+        background-color: rgb(19,19,19);
+        position: fixed;
+        margin: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 775px;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+        /* border: 5px solid turquoise; */
+    }
+
+}
+
+
+.project--image {
+    width: 100%;
+    position: sticky;
+    position: -webkit-sticky;
+    /* position: fixed; */
+    top: 0;
+    z-index: -1;
+    /* border: 5px solid orange; */
+}
+
+.project--info {
+    color: white;
+    width: 100%;
+    margin: auto;
+}
+
+.project--title--container {
+    height: 80px;
+}
+
+.project--title--bg {
+    background-image: linear-gradient(white, rgb(19,19,19));
+    color: white;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    /* top: 0px; */
+
+    padding: 10px 10px 10px 10px;
+    /* border: 5px solid blue; */
+
+}
+
+.project--title {
+    position: absolute;
+    /* top: 0px; */
+    /* border: 5px solid green; */
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+    /* background-color: rgb(19,19,19); */
+    /* opacity: 1; */
+
+}
+
+.project--data {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 100px;
+    padding: 0px 25px 100px 25px;
+    margin: 0;
+    color: white;
+    background-color: rgb(19,19,19);
+}
+
+
+/* 
+Project Overlay --> X close buttom
+    x--image--overlay container around everytrhong
+    x--image--container container around ximage
+    x--image img class.
+*/
+
+ /* Circle around X image. */
+.x--image--container {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 100%;
+    width: 50px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 3;
+    /* background-color: pink;    */
+}
+/*  Actualy x image css */
+.x--image {
+    /* position: sticky; */
+    top: 0;
+    width: 50px;
+    font-size: 50px;
+    cursor: pointer;
+    z-index: 3;
+    filter:  
+        invert(100%)
+        sepia(100%)
+        saturate(100%)
+        hue-rotate(45deg)
+        brightness(102%)
+        contrast(101%);
+}
+
+.x--image:hover {
+    transform: scale(1.2);
+    /* background-color: rgb(19,19,19); */
+}
+
+
+/*
+ RELATED PROJECT CARD SECTIONS
+    - Click on a project
+    - Pop up screen, bottom half, display 6 related projects.
+ */
+
+@media only screen and (max-width: 774px) {
+    .project--related {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        place-content: center;
+        background-color: rgb(19,19,19);
+        padding-bottom: 100px;
+    
+    }
+    
+    .project--related--item {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+        flex: 50%;
+    }
+    
+    
+    
+    .project--related--item > div {
+        width: 300px;
+        cursor: pointer;
+    }
+    .project--related--item > div > img {
+        width: 300px;
+        height: 225px;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 775px) {
+    .project--related {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center;
+        background-color: rgb(19,19,19);
+        padding-bottom: 100px;
+    
+    }
+    
+    .project--related--item {
+        display: flex;
+        flex: 50%;
+    }
+    
+    
+    .project--related--item > div {
+        width: 300px;
+        cursor: pointer;
+    }
+    .project--related--item > div > img {
+        width: 300px;
+        height: 225px;
+    }
+
+}
+
+@media only screen and (min-width: 650px) {
+    .project--related--item:nth-child(odd) {
+        justify-content: end;
+        padding: 5px 5px 5px 0px;
+    }
+    
+    .project--related--item:nth-child(even) {
+        justify-content: start;
+        flex: 50%;
+        padding: 5px 0px 5px 5px;
+    }
+
+}
+
+
+
+/* 
+Swiper Card Stuff 
+- used Card.js --> used in carousels, and related projects.
+*/
+.cards-list {
+    cursor: pointer;
+    height: 20vh;
+    padding-top: 150px;
+}
+
+
+/* 
+Card 
+--> used with swiper, 
+--> used within Project.js # related section
+*/
+.card {
+    width: 200px;
+    cursor: pointer; 
+}
+
+
+.card--image {
+    width: 200px;
+    height: 150px;
+    background-color: black;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.swiper-slide {
+    width: auto;
+    padding: 15px;
+}
+
+
+/* Other */
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.link:hover {
+    color: white;
+}
+
+
+.noscroll {
+    overflow-y: hidden;
+}
+
+.mask {
+    background-color: black;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.footer {
+    /* position: fixed; */
+    /* position: relative;
+    left:0;
+    bottom:0;
+    right:0; */
+    /* height: 50px; */
+    margin-top: 2500px;
+}
+
+
+/* Loader */
+/* https://projects.lukehaas.me/css-loaders/ */
+.test {
+    padding-top: 200px;
+}
+.loader-text {
+    display: flex;
+    color: white;
+    padding: 20px, 20px, 20px, 20;
+    justify-content: center;
+}
+
+.loader {
+    color: #ffffff;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  }
+  @-webkit-keyframes load6 {
+    0% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+  }
+  @keyframes load6 {
+    0% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+  }
+  @-webkit-keyframes round {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes round {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+
+
