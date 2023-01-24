@@ -1,10 +1,14 @@
 import React from "react";
 
-const useOutsideClick = (callback:any) => {
-    const ref = React.useRef();
+
+
+
+const useOutsideClick = (callback: Function) => {
+    const ref = React.useRef<HTMLElement>(null);
 
     React.useEffect(() => {
-        const handleClick = (event:any) => {
+        // adjust any
+        const handleClick = (event: any) => {
             if (ref.current && !ref.current.contains(event.target)){
                 callback();
             }
