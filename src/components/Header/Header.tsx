@@ -2,7 +2,7 @@ import React from "react";
 import './Header.css';
 
 const Header = () => (
-    <header className="portfolio-header">
+    <header className="portfolio--header">
         <h1 className="name">
             <a
                 className="link"

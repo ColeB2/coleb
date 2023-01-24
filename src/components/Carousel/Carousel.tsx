@@ -12,26 +12,30 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Card from '../Card/Card';
 
+import { projectType } from '../../types/customTypes';
+
 interface projectData {
 
 }
 
 interface CarouselProps {
-    data: [];
-    techId: number;
+    id: number;
     title: string;
-    handleClick: (id: number, data: []) => void;
+    data: projectType[];
+    handleClick: (id: number, data: projectType[]) => void;
 }
 
 const Carousel = (props: CarouselProps) => 
-    props.data.length !== 0 && (
-        <div className='' key={props.techId}>
+    // props.data.length !== 0 && 
+    (
+        <div className='' key={props.id}>
             <h5>{props.title}</h5>
             <Swiper
                 modules={[Navigation, Pagination]}
                 direction={'horizontal'}
                 spaceBetween={0}
-                freeMode={true}
+                // freeMode={true}
+                rewind={true}
                 slidesPerView={'auto'}
                 // loop={true}
                 // slidesPerGroupAuto

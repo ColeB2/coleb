@@ -74,9 +74,8 @@ const url = "https://y5u5bb.deta.dev/projects"
 function App() {
     const [loading, setLoading] = useState(true)
 
-    
-    const [currentProject, setCurrentProject] = useState<projectType>(
-        {} as projectType
+    const [currentProject, setCurrentProject] = useState<projectType | null>(
+        null as projectType | null
     );
     const [pinnedProjectData, setPinnedProjectData] = useState<projectType[]>(
         {} as projectType[] 
@@ -91,42 +90,26 @@ function App() {
 
     useEffect(() => {
         axios.get(url).then((response:any) => {
-            console.log("response", response.data)
             const data: APICallType = response.data
             const items = data["_items"]
-            console.log("---items", items)
-            // setPortfolioData(items)
             setPortfolioData([...items])
-            // setPortfolioData([])
-            // setPortfolioData({...items})
-            console.log('PortfolioData', portfolioData)
-            setLoading(false)
-            
+            setLoading(false)   
         })
     }, [])
     
 
     useEffect(() => {
         const ret = []
-        console.log("portData start", portfolioData)
         for (const tech in techData) {
             const techObj: techDataType = techData[tech]
             const item: techObjectType = {
-                id : techObj.id,
+                id: techObj.id,
                 title: techObj.name,
                 data: []
             }
-
-            // item.id = tech.id
-            // item.title = techData[tech].name
-            console.log('INSIDE HERE, portfolio data', portfolioData)
             item.data = portfolioData.filter((project) => {
-                console.log("Print HERE", project, "PRINTHERE")
                 return (
-                    
                     project.technologies &&
-                    // Object.values(project.technologies).includes(
-                    //     techData[tech].id)
                     Object.values(project.technologies).includes(
                         item.title)
                 )
@@ -134,7 +117,6 @@ function App() {
             ret.push(item)
         }
         setFilteredProjectData(ret)
-
     }, [portfolioData])
 
     //pinned data
@@ -144,6 +126,8 @@ function App() {
         }))
     }, [portfolioData])
 
+
+    // FUNCTIONS
     function handleClick(id: number, data: projectType[]) {
         data.forEach((item) => {
             if (item.id === id) {
@@ -158,19 +142,16 @@ function App() {
                 setCurrentProject(() => item)
             }
         })
-        const topOfOverlay = document.getElementById("top-of-overlay")
+        const topOfOverlay = document.getElementById("top-of-overlay")!
         topOfOverlay.scrollIntoView({behavior: "smooth"})
     }
 
 
     function handleClose() {
-        // setCurrentProject(() => null)
-        setCurrentProject({} as projectType)
+        setCurrentProject(() => null)
     }
 
     const ref = useOutsideClick(handleClose)
-    console.log('Outside effect', portfolioData, loading)
-    console.log('Outside2', filteredProjectData)
 
     return (
         
@@ -188,6 +169,7 @@ function App() {
                     {/* Pinned//Featured Projects//Top list of projects */}
                     <Carousel
                         key={99}
+                        id={99}
                         title="Featured Projects"
                         data={pinnedProjectData}
                         handleClick={handleClick}
@@ -199,7 +181,7 @@ function App() {
                             item.data &&
                             <Carousel 
                                 key={idx}
-                                techId={item.techId}
+                                id={item.id}
                                 title={item.title}
                                 data={item.data}
                                 handleClick={handleClick}

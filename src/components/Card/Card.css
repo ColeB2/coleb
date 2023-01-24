@@ -1,0 +1,14 @@
+.card {
+    width: 200px;
+    cursor: pointer; 
+}
+
+.card-image {
+    width: 200px;
+    height: 150px;
+    background-color: black;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
