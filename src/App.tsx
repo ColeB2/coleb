@@ -46,11 +46,11 @@ const techData: techDataType[] = [
         "name": "React",
         "order": 85
     },
-    {
-        "id": 9,
-        "name": "Django REST Framework",
-        "order": 90
-    },
+    // {
+    //     "id": 9,
+    //     "name": "Django REST Framework",
+    //     "order": 90
+    // },
     {
         "id": 3,
         "name": "HTML",
