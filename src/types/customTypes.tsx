@@ -16,10 +16,10 @@ interface projectType {
     title: string;
     description: string;
     image: string;
-    start_date: string;
-    end_date: string;
-    github: string;
-    link: string;
+    start_date: string | null;
+    end_date: string | null;
+    github: string | null;
+    link: string | null;
     order: number;
     technologies: string[];
     pinned: boolean;
