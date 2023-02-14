@@ -1,5 +1,5 @@
 import { describe, vi } from 'vitest';
-import { fireEvent, getByAltText, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Card from './Card';
 
@@ -9,7 +9,6 @@ const item = {image:image}
 
 describe('Card component', () => {
     it('should render an image', () => {
-        // Arrange
         const handleClick = vi.fn();
         render(
             <Card
@@ -17,8 +16,7 @@ describe('Card component', () => {
                 {...item}
             />
         )
-        // Act
-        // Expect
+
         const displayedImage = document.querySelector('img') as HTMLImageElement;
         expect(displayedImage.src).toContain(image)
         expect(displayedImage.getAttribute('src')).toEqual(image)
@@ -32,10 +30,9 @@ describe('Card component', () => {
                 {...item}
             />
         )
-        // https://vitest.dev/guide/mocking.html
-        // checkout mocking next day TODO.
+
         const cardComponent = screen.getByRole('img');
-        // console.log(getByTestId)
+
         fireEvent.click(cardComponent);
         expect(handleClick).toHaveBeenCalled();
         fireEvent.click(cardComponent);
