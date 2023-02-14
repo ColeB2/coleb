@@ -8,7 +8,7 @@ const image = 'https://path.to/image'
 const item = {image:image}
 
 describe('Card component', () => {
-    it('should render an image', () => {
+    it('should render an image from the src provided', () => {
         const handleClick = vi.fn();
         render(
             <Card
