@@ -7,7 +7,69 @@ import { projectType } from '../../types/customTypes';
 
 
 describe('Project', () => {
-    it('Renders Project component basic unit tests', () => {
+    it('Project title should properly set', () => {
+        const handleClickOverlay = () => undefined;
+        const handleClose = () => undefined;
+        render(
+            <Project
+                key={0}
+                data={projectItem}
+                handleClose={handleClose}
+                handleClick={handleClickOverlay}
+                relatedProjects={relatedProjects}
+            />
+        )
+        expect(screen.getByRole('heading')).toHaveTextContent('Project Name')
+    })
+
+    it('Project links should be properly set', () => {
+        const handleClickOverlay = () => undefined;
+        const handleClose = () => undefined;
+        render(
+            <Project
+                key={0}
+                data={projectItem}
+                handleClose={handleClose}
+                handleClick={handleClickOverlay}
+                relatedProjects={relatedProjects}
+            />
+        )
+        const link = screen.getAllByRole('link')
+        expect(link[0]).toHaveAttribute('href', 'https://path.to/project')
+        expect(link[1]).toHaveAttribute('href', 'https://path.to/github')
+    })
+
+    it('Project images should be properly set', () => {
+        const handleClickOverlay = () => undefined;
+        const handleClose = () => undefined;
+        render(
+            <Project
+                key={0}
+                data={projectItem}
+                handleClose={handleClose}
+                handleClick={handleClickOverlay}
+                relatedProjects={relatedProjects}
+            />
+        )
+        expect(screen.getByRole('heading')).toHaveTextContent('Project Name')
+
+
+        const images = screen.getAllByRole('img') as HTMLImageElement[];
+        const imageContent = [
+            '/src/images/x.svg',
+            'https://path.to/image',
+            'https://path.to/image',
+            'https://path.to/image2',
+            'https://path.to/image3',
+        ]
+        for (let i = 0; i < images.length; i++) {
+            expect(images[i].src).toContain(imageContent[i])
+        }
+    })
+
+    it('Projet links should be properly set', () => {
+        const handleClickOverlay = () => undefined;
+        const handleClose = () => undefined;
         render(
             <Project
                 key={0}
@@ -22,24 +84,23 @@ describe('Project', () => {
         const link = screen.getAllByRole('link')
         expect(link[0]).toHaveAttribute('href', 'https://path.to/project')
         expect(link[1]).toHaveAttribute('href', 'https://path.to/github')
+    })
 
-        const images = screen.getAllByRole('img') as HTMLImageElement[];
-        const imageContent = [
-            '/src/images/x.svg',
-            'https://path.to/image',
-            'https://path.to/image',
-            'https://path.to/image2',
-            'https://path.to/image3',
-        ]
-        for (let i = 0; i < images.length; i++) {
-            expect(images[i].src).toContain(imageContent[i])
-        }
-
+    it('Project description, title set properly', () => {
+        const handleClickOverlay = () => undefined;
+        const handleClose = () => undefined;
+        render(
+            <Project
+                key={0}
+                data={projectItem}
+                handleClose={handleClose}
+                handleClick={handleClickOverlay}
+                relatedProjects={relatedProjects}
+            />
+        )
         const desc = screen.getByText('Project description 0 here.')
         expect(desc).toHaveTextContent('Project description 0 here.')
         expect(desc.closest('p')).toHaveTextContent('Project')
-        
-
     })
 })
 
@@ -57,8 +118,7 @@ const projectItem: projectType = {
     pinned: true
 }
 
-const handleClickOverlay = () => undefined;
-const handleClose = () => undefined;
+
 const relatedProjects = [
     {
         id: 0,
