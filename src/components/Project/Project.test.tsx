@@ -1,5 +1,5 @@
-import { describe } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, vi } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import Project from './Project';
 import { projectType } from '../../types/customTypes';
@@ -101,6 +101,31 @@ describe('Project', () => {
         const desc = screen.getByText('Project description 0 here.')
         expect(desc).toHaveTextContent('Project description 0 here.')
         expect(desc.closest('p')).toHaveTextContent('Project')
+    })
+
+    it('Can Click related projects', () => {
+        const handleClickOverlay = vi.fn();
+        const handleClose = vi.fn();
+        render(
+            <Project
+                key={0}
+                data={projectItem}
+                handleClose={handleClose}
+                handleClick={handleClickOverlay}
+                relatedProjects={relatedProjects}
+            />
+        )
+        const images = screen.getAllByRole('img');
+        // Click all images
+        // 1 close buttom image, 1 main project - no call
+        // 3 related projects --> handleClickOverlay
+        for(let i = 0; i <= images.length-1; i++) {
+            let image = images[i]
+            fireEvent.click(image);
+        }
+        expect(handleClickOverlay).toHaveBeenCalledTimes(3);
+        expect(handleClose).toHaveBeenCalledTimes(1);
+        
     })
 })
 
