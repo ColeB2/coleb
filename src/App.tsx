@@ -69,7 +69,8 @@ const techData: techDataType[] = [
 ]
 
 
-const url = "https://y5u5bb.deta.dev/projects"
+// const url = "https://y5u5bb.deta.dev/projects"
+const url = "https://portfolio-1-m7436351.deta.app/projects"
 
 function App() {
     const [loading, setLoading] = useState(true)
