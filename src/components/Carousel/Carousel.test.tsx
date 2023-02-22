@@ -2,6 +2,7 @@ import { describe, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import Carousel from './Carousel';
+import { PROJECT_DATA } from '../../tests/testData';
 
 describe('Carousel', () => {
     it('Carousel title should properly set..', () => {
@@ -11,7 +12,7 @@ describe('Carousel', () => {
                 key={0}
                 id={0}
                 title="Featured Projects"
-                data={projectData}
+                data={PROJECT_DATA}
                 handleClick={handleClick}
             />
         );
@@ -35,7 +36,7 @@ describe('Carousel', () => {
                 key={0}
                 id={0}
                 title="Featured Projects"
-                data={projectData}
+                data={PROJECT_DATA}
                 handleClick={handleClick}
             />
         );
@@ -58,7 +59,7 @@ describe('Carousel', () => {
                 key={0}
                 id={0}
                 title="Featured Projects"
-                data={projectData}
+                data={PROJECT_DATA}
                 handleClick={handleClick}
             />
         );
@@ -73,47 +74,3 @@ describe('Carousel', () => {
         
     });
 });
-
-const handleClose = () => undefined;
-const projectData = [
-    {
-        id: 0,
-        title: 'Project Name',
-        description: 'Project description 0 here.',
-        image: 'https://path.to/image',
-        start_date: null,
-        end_date: null,
-        github: 'https://path.to/github',
-        link: 'https://path.to/project',
-        order: 0,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    },
-    {
-        id: 1,
-        title: 'Project Name2',
-        description: 'Project description 1 here.',
-        image: 'https://path.to/image2',
-        start_date: null,
-        end_date: null,
-        github: 'https://path.to/github2',
-        link: null,
-        order: 1,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    },
-    {
-        id: 2,
-        title: 'Project Name3',
-        description: 'Project description 2 here.',
-        image: 'https://path.to/image3',
-        start_date: null,
-        end_date: null,
-        github: null,
-        link: 'https://path.to/project3',
-        order: 2,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    }
-
-]

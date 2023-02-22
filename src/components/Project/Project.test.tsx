@@ -4,6 +4,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Project from './Project';
 import { projectType } from '../../types/customTypes';
 
+import { PROJECT_ITEM, PROJECT_DATA } from '../../tests/testData';
+
 
 
 describe('Project', () => {
@@ -13,10 +15,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         expect(screen.getByRole('heading')).toHaveTextContent('Project Name')
@@ -28,10 +30,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         const link = screen.getAllByRole('link')
@@ -45,10 +47,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         expect(screen.getByRole('heading')).toHaveTextContent('Project Name')
@@ -73,10 +75,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         expect(screen.getByRole('heading')).toHaveTextContent('Project Name')
@@ -92,10 +94,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         const desc = screen.getByText('Project description 0 here.')
@@ -109,10 +111,10 @@ describe('Project', () => {
         render(
             <Project
                 key={0}
-                data={projectItem}
+                data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={relatedProjects}
+                relatedProjects={PROJECT_DATA}
             />
         )
         const images = screen.getAllByRole('img');
@@ -128,61 +130,3 @@ describe('Project', () => {
         
     })
 })
-
-const projectItem: projectType = {
-    id: 0,
-    title: 'Project Name',
-    description: 'Project description 0 here.',
-    image: 'https://path.to/image',
-    start_date: null,
-    end_date: null,
-    github: 'https://path.to/github',
-    link: 'https://path.to/project',
-    order: 0,
-    technologies: ['tech1', 'tech2', 'tech3'],
-    pinned: true
-}
-
-
-const relatedProjects = [
-    {
-        id: 0,
-        title: 'Project Name',
-        description: 'Project description 0 here.',
-        image: 'https://path.to/image',
-        start_date: null,
-        end_date: null,
-        github: 'https://path.to/github',
-        link: 'https://path.to/project',
-        order: 0,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    },
-    {
-        id: 1,
-        title: 'Project Name2',
-        description: 'Project description 1 here.',
-        image: 'https://path.to/image2',
-        start_date: null,
-        end_date: null,
-        github: 'https://path.to/github2',
-        link: null,
-        order: 1,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    },
-    {
-        id: 2,
-        title: 'Project Name3',
-        description: 'Project description 2 here.',
-        image: 'https://path.to/image3',
-        start_date: null,
-        end_date: null,
-        github: null,
-        link: 'https://path.to/project3',
-        order: 2,
-        technologies: ['tech1', 'tech2', 'tech3'],
-        pinned: true
-    }
-
-]
