@@ -15,6 +15,10 @@ import {
     techObjectType
 } from './types/customTypes'
 
+// import { fetchProjects } from './api';
+// import { getProjectsFromApi } from './api';
+import api from './api/projects';
+
 const techData: techDataType[] = [
     {
         "id": 1,
@@ -69,8 +73,6 @@ const techData: techDataType[] = [
 ]
 
 
-// const url = "https://y5u5bb.deta.dev/projects"
-const url = "https://portfolio-1-m7436351.deta.app/projects"
 
 function App() {
     const [loading, setLoading] = useState(true)
@@ -90,12 +92,25 @@ function App() {
     );
 
     useEffect(() => {
-        axios.get(url).then((response:any) => {
-            const data: APICallType = response.data
-            const items = data["_items"]
-            setPortfolioData([...items])
-            setLoading(false)   
-        })
+        const fetchProjects = async () => {
+            try {
+                const response = await api.get('/projects')
+                const data = response.data;
+                const items = data["_items"];
+                setPortfolioData([...items])
+                setLoading(false)
+            } catch (err: any) {
+                // Not in 200 response range
+                if (err.response) {
+                    console.log(err.response.data);
+                    console.log(err.response.status);
+                    console.log(err.respopnse.headers);
+                } else {
+                    console.log(`Error: ${err.message}`)
+                }
+            }
+        }
+        fetchProjects();
     }, [])
     
 
