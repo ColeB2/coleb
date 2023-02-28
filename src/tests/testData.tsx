@@ -11,7 +11,7 @@ export const PROJECT_DATA = [
         github: 'https://path.to/github',
         link: 'https://path.to/project',
         order: 0,
-        technologies: ['tech1', 'tech2', 'tech3'],
+        technologies: ['1', '2', '3'],
         pinned: true
     },
     {
@@ -24,7 +24,7 @@ export const PROJECT_DATA = [
         github: 'https://path.to/github2',
         link: null,
         order: 1,
-        technologies: ['tech4', 'tech5', 'tech6'],
+        technologies: ['4', '5', '6'],
         pinned: true
     },
     {
@@ -37,7 +37,7 @@ export const PROJECT_DATA = [
         github: null,
         link: 'https://path.to/project3',
         order: 2,
-        technologies: ['tech7', 'tech8', 'tech9'],
+        technologies: ['1', '7', '8', '9'],
         pinned: true
     }
 
