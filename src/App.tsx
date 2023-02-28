@@ -18,59 +18,9 @@ import {
 // import { fetchProjects } from './api';
 // import { getProjectsFromApi } from './api';
 import api from './api/projects';
+import { techData } from './api/technologies';
 
-const techData: techDataType[] = [
-    {
-        "id": 1,
-        "name": "Python",
-        "order": 1
-    },
-    {
-        "id": 11,
-        "name": "TypeScript",
-        "order": 3
-    },
-    {
-        "id": 5,
-        "name": "JavaScript",
-        "order": 4
-    },
-    {
-        "id": 2,
-        "name": "Django",
-        "order": 5
-    },
-    {
-        "id": 7,
-        "name": "Pygame",
-        "order": 6
-    },
-    {
-        "id": 8,
-        "name": "React",
-        "order": 85
-    },
-    // {
-    //     "id": 9,
-    //     "name": "Django REST Framework",
-    //     "order": 90
-    // },
-    {
-        "id": 3,
-        "name": "HTML",
-        "order": 99
-    },
-    {
-        "id": 4,
-        "name": "CSS",
-        "order": 99
-    },
-    {
-        "id": 6,
-        "name": "Bootstrap",
-        "order": 99
-    }
-]
+
 
 
 
@@ -95,6 +45,7 @@ function App() {
         const fetchProjects = async () => {
             try {
                 const response = await api.get('/projects')
+                // console.log('------------RESPONSE-----------',response)
                 const data = response.data;
                 const items = data["_items"];
                 setPortfolioData([...items])
@@ -223,8 +174,7 @@ function App() {
         </div>
         :
         <div className="loader-container">
-            <div className="loader">
-            </div>
+            <div className="loader"></div>
             <h5 className="loader-text">
                 Thank you for visiting.
                 If content takes too long to load, please refresh.
