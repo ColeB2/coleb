@@ -37,9 +37,9 @@ describe('App', () => {
         // screen.debug();
         // screen.getByRole('')
     
-        const allProjects = screen.getAllByRole('heading');
-        const featured = allProjects[1]
-        console.log(featured.parentElement?.childNodes[1].childNodes[0])
+        // const allProjects = screen.getAllByRole('heading');
+        // const featured = allProjects[1]
+        // console.log(featured.parentElement?.childNodes[1].childNodes[0])
 
         // // console.log(allProjects)
         // allProjects.forEach((project) => {
