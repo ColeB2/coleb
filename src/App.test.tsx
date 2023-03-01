@@ -3,7 +3,6 @@ import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-lib
 
 import App from './App';
 // import * as api from "./api";
-import { PROJECT_DATA } from './tests/testData';
 import { techData } from './api/technologies';
 
 
@@ -31,17 +30,25 @@ describe('App', () => {
     });
 
     it('Renders Proper Slider Components', async () => {
-         render(<App />)
+        render(<App />)
 
         await waitForElementToBeRemoved(() => screen.getByText('Thank you for visiting. If content takes too long to load, please refresh.'))
 
         // screen.debug();
+        // screen.getByRole('')
+    
         const allProjects = screen.getAllByRole('heading');
-        // console.log(allProjects)
-        allProjects.forEach((project) => {
-            console.log('------------------------------------------------')
-            console.log(project.closest('img'))
-        })
+        const featured = allProjects[1]
+        console.log(featured.parentElement?.childNodes[1].childNodes[0])
+
+        // // console.log(allProjects)
+        // allProjects.forEach((project) => {
+        //     console.log('------------------------------------------------', allProjects.length)
+            
+        //     console.log(project.closest('div').childNodes[1])
+        // })
+        // console.log('-------------X-------------------')
+        // console.log('-XXXXXXX-', screen.debug(allProjects[2]))
 
     }) 
 });

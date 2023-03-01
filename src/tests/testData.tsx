@@ -11,7 +11,7 @@ export const PROJECT_DATA = [
         github: 'https://path.to/github',
         link: 'https://path.to/project',
         order: 0,
-        technologies: ['1', '2', '3'],
+        technologies: ['Python', 'Django', "JavaScript"],
         pinned: true
     },
     {
@@ -24,7 +24,7 @@ export const PROJECT_DATA = [
         github: 'https://path.to/github2',
         link: null,
         order: 1,
-        technologies: ['4', '5', '6'],
+        technologies: ['Python', 'Django', "JavaScript"],
         pinned: true
     },
     {
@@ -37,7 +37,8 @@ export const PROJECT_DATA = [
         github: null,
         link: 'https://path.to/project3',
         order: 2,
-        technologies: ['1', '7', '8', '9'],
+        // technologies: [1,7,8,9],
+        technologies:["TypeScript","JavaScript","HTML","CSS"],
         pinned: true
     }
 
@@ -54,4 +55,11 @@ export const PROJECT_ITEM: projectType = {
     order: 0,
     technologies: ['tech1', 'tech2', 'tech3'],
     pinned: true
+}
+
+
+export const MOCK_API_DATA = {
+    _count: 3,
+    _last: null,
+    _items: PROJECT_DATA
 }
