@@ -14,10 +14,6 @@ import Card from '../Card/Card';
 
 import { projectType } from '../../types/customTypes';
 
-interface projectData {
-
-}
-
 interface CarouselProps {
     id: number;
     title: string;
@@ -28,7 +24,7 @@ interface CarouselProps {
 const Carousel = (props: CarouselProps) => 
     // props.data.length !== 0 && 
     (
-        <div className='' key={props.id}>
+        <div className='swiper-div' key={props.id}>
             <h5>{props.title}</h5>
             <Swiper
                 modules={[Navigation, Pagination]}

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState, useEffect } from 'react'
 import './App.css'
 
@@ -9,14 +8,11 @@ import Project from './components/Project/Project';
 import useOutsideClick from './hooks/hooks';
 
 import { 
-    APICallType,
     projectType,
     techDataType,
     techObjectType
 } from './types/customTypes'
 
-// import { fetchProjects } from './api';
-// import { getProjectsFromApi } from './api';
 import api from './api/projects';
 import { techData } from './api/technologies';
 
@@ -46,6 +42,7 @@ function App() {
             try {
                 const response = await api.get('/projects')
                 // console.log('------------RESPONSE-----------',response)
+                // console.log('----------------------------------------------')
                 const data = response.data;
                 const items = data["_items"];
                 setPortfolioData([...items])

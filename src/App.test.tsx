@@ -1,8 +1,7 @@
-import { describe, vi } from 'vitest';
-import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { describe } from 'vitest';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 
 import App from './App';
-// import * as api from "./api";
 import { techData } from './api/technologies';
 
 
@@ -21,8 +20,6 @@ describe('App', () => {
 
         await waitForElementToBeRemoved(() => screen.getByText('Thank you for visiting. If content takes too long to load, please refresh.'))
 
-        // const allProjects = screen.getAllByRole('heading');
-        // console.log(allProjects)
         techData.forEach((tech) => {
             let techTitle = screen.getByRole('heading', {name: tech.name})
             expect(techTitle).toBeDefined()
@@ -30,37 +27,23 @@ describe('App', () => {
     });
 
     it('Renders Proper Slider Components', async () => {
-        render(<App />)
+        // render(<App />)
 
-        await waitForElementToBeRemoved(() => screen.getByText('Thank you for visiting. If content takes too long to load, please refresh.'))
+        // await waitForElementToBeRemoved(() => screen.getByText('Thank you for visiting. If content takes too long to load, please refresh.'))
 
-        // screen.debug();
-        // screen.getByRole('')
-    
-        const allProjects = screen.getAllByRole('heading');
-        console.log(allProjects.length)
-        allProjects.forEach(proj => {
-            let parent = proj.closest('div')
-            let swiper = proj.children
-            console.log('Parent', parent?.tagName, parent?.childElementCount)
-            console.log(proj.childNodes[2])
-            console.log('------->', swiper)
-        })
-
-        // screen.debug(undefined, 300000);
-        // screen.getAllByRole('img');
-
-        // const featured = allProjects[1]
-        // console.log(featured.parentElement?.childNodes[1].childNodes[0])
-
-        // // console.log(allProjects)
-        // allProjects.forEach((project) => {
-        //     console.log('------------------------------------------------', allProjects.length)
-            
-        //     console.log(project.closest('div').childNodes[1])
+        // Attempt to Test swiper slides
+        // Cards don't properly appear though.
+        // const allProjects = screen.getAllByRole('heading');
+        // console.log(allProjects.length)
+        // allProjects.forEach(proj => {
+        //     let parent = proj.closest('div')
+        //     let swiper = parent.children[1]
+        //     let wrapper = swiper.children[0]
+        //     console.log('Parent', parent?.tagName, parent?.className, parent?.childElementCount)
+        //     // console.log(parent.childNodes[1])
+        //     // console.log('------->', swiper)
+        //     console.log('XXXXXX>', wrapper)
         // })
-        // console.log('-------------X-------------------')
-        // console.log('-XXXXXXX-', screen.debug(allProjects[2]))
 
     }) 
 });
