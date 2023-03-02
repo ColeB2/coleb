@@ -17,16 +17,6 @@ describe('Carousel', () => {
             />
         );
         expect(screen.getByRole('heading')).toHaveTextContent("Featured Projects")
-        
-        const images = screen.getAllByRole('img') as HTMLImageElement[];
-        const imageContent = [
-            'https://path.to/image',
-            'https://path.to/image2',
-            'https://path.to/image3',
-        ]
-        for (let i = 0; i < images.length; i++) {
-            expect(images[i].src).toContain(imageContent[i])
-        }
     });
 
     it('Carousel, images should properly set', () => {
@@ -42,9 +32,14 @@ describe('Carousel', () => {
         );
         const images = screen.getAllByRole('img') as HTMLImageElement[];
         const imageContent = [
-            'https://path.to/image',
+            'https://path.to/image1',
             'https://path.to/image2',
             'https://path.to/image3',
+            'https://path.to/image4',
+            'https://path.to/image5',
+            'https://path.to/image6',
+            'https://path.to/image7',
+            'https://path.to/image8',
         ]
         for (let i = 0; i < images.length; i++) {
             expect(images[i].src).toContain(imageContent[i])
@@ -70,7 +65,8 @@ describe('Carousel', () => {
             let image = images[i];
             fireEvent.click(image)
         }
-        expect(handleClick).toHaveBeenCalledTimes(3);
+        // All images should be clickable.
+        expect(handleClick).toHaveBeenCalledTimes(images.length);
         
     });
 });

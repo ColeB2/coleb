@@ -2,7 +2,6 @@ import { describe, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import Project from './Project';
-import { projectType } from '../../types/customTypes';
 
 import { PROJECT_ITEM, PROJECT_DATA } from '../../tests/testData';
 
@@ -63,6 +62,11 @@ describe('Project', () => {
             'https://path.to/image',
             'https://path.to/image2',
             'https://path.to/image3',
+            'https://path.to/image4',
+            'https://path.to/image5',
+            'https://path.to/image6',
+            'https://path.to/image7',
+            'https://path.to/image8',
         ]
         for (let i = 0; i < images.length; i++) {
             expect(images[i].src).toContain(imageContent[i])
@@ -108,13 +112,14 @@ describe('Project', () => {
     it('Can Click related projects', () => {
         const handleClickOverlay = vi.fn();
         const handleClose = vi.fn();
+        const FEATURED = PROJECT_DATA.filter(proj => proj.pinned === true)
         render(
             <Project
                 key={0}
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
-                relatedProjects={PROJECT_DATA}
+                relatedProjects={FEATURED}
             />
         )
         const images = screen.getAllByRole('img');
@@ -125,7 +130,9 @@ describe('Project', () => {
             let image = images[i]
             fireEvent.click(image);
         }
-        expect(handleClickOverlay).toHaveBeenCalledTimes(3);
+        // All FEATURED project should be clickable.
+        // 8 images, X svg, and current project + 6 related. 
+        expect(handleClickOverlay).toHaveBeenCalledTimes(images.length - 2);
         expect(handleClose).toHaveBeenCalledTimes(1);
         
     })

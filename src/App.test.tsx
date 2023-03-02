@@ -37,7 +37,19 @@ describe('App', () => {
         // screen.debug();
         // screen.getByRole('')
     
-        // const allProjects = screen.getAllByRole('heading');
+        const allProjects = screen.getAllByRole('heading');
+        console.log(allProjects.length)
+        allProjects.forEach(proj => {
+            let parent = proj.closest('div')
+            let swiper = proj.children
+            console.log('Parent', parent?.tagName, parent?.childElementCount)
+            console.log(proj.childNodes[2])
+            console.log('------->', swiper)
+        })
+
+        // screen.debug(undefined, 300000);
+        // screen.getAllByRole('img');
+
         // const featured = allProjects[1]
         // console.log(featured.parentElement?.childNodes[1].childNodes[0])
 
