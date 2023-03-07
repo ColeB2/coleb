@@ -11,7 +11,7 @@ interface ProjectProps {
     data: projectType;
     handleClose: () => void;
     handleClick: (id: number, data: projectType[]) => void;
-    handleEnter: React.KeyboardEventHandler<HTMLDivElement>;
+    handleEnter: React.KeyboardEventHandler<HTMLDivElement> | undefined;
     relatedProjects: any;
 
 }

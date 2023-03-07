@@ -176,7 +176,7 @@ function App() {
                         data={currentProject}
                         handleClose={handleClose}
                         handleClick={handleClickOverlay}
-                        handleEnter={handleEnter}
+                        handleEnter={undefined}
                         relatedProjects={pinnedProjectData}
                     />
                 }
