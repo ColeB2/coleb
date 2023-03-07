@@ -17,6 +17,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={PROJECT_DATA}
             />
         )
@@ -32,6 +33,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={PROJECT_DATA}
             />
         )
@@ -49,6 +51,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={PROJECT_DATA}
             />
         )
@@ -82,6 +85,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={PROJECT_DATA}
             />
         )
@@ -101,6 +105,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={PROJECT_DATA}
             />
         )
@@ -119,6 +124,7 @@ describe('Project', () => {
                 data={PROJECT_ITEM}
                 handleClose={handleClose}
                 handleClick={handleClickOverlay}
+                handleEnter={undefined}
                 relatedProjects={FEATURED}
             />
         )
