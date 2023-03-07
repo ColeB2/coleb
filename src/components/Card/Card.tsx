@@ -5,8 +5,7 @@ import { projectType } from "../../types/customTypes";
 
 interface CardProps extends projectType {
     handleClick: React.MouseEventHandler<Element>
-    handleEnter: React.KeyboardEventHandler<HTMLDivElement>
-    // handleEnter: (e: KeyboardEvent) => void
+    handleEnter: React.KeyboardEventHandler<HTMLDivElement> | undefined
 }
 
 const Card = (props: CardProps) => (

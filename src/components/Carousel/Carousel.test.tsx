@@ -7,6 +7,7 @@ import { PROJECT_DATA } from '../../tests/testData';
 describe('Carousel', () => {
     it('Carousel title should properly set..', () => {
         const handleClick = () => undefined;
+        const handleEnter = () => undefined;
         render(
             <Carousel
                 key={0}
@@ -14,6 +15,7 @@ describe('Carousel', () => {
                 title="Featured Projects"
                 data={PROJECT_DATA}
                 handleClick={handleClick}
+                handleEnter={handleEnter}
             />
         );
         expect(screen.getByRole('heading')).toHaveTextContent("Featured Projects")
@@ -21,6 +23,7 @@ describe('Carousel', () => {
 
     it('Carousel, images should properly set', () => {
         const handleClick = () => undefined;
+        const handleEnter = () => undefined;
         render(
             <Carousel
                 key={0}
@@ -28,6 +31,7 @@ describe('Carousel', () => {
                 title="Featured Projects"
                 data={PROJECT_DATA}
                 handleClick={handleClick}
+                handleEnter={handleEnter}
             />
         );
         const images = screen.getAllByRole('img') as HTMLImageElement[];
@@ -49,6 +53,7 @@ describe('Carousel', () => {
 
     it('Can click carousel items', () => {
         const handleClick = vi.fn();
+        const handleEnter = () => undefined;
         render(
             <Carousel
                 key={0}
@@ -56,6 +61,7 @@ describe('Carousel', () => {
                 title="Featured Projects"
                 data={PROJECT_DATA}
                 handleClick={handleClick}
+                handleEnter={handleEnter}
             />
         );
         //3 images -> 3 projects

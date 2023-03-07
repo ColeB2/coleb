@@ -11,12 +11,13 @@ interface ProjectProps {
     data: projectType;
     handleClose: () => void;
     handleClick: (id: number, data: projectType[]) => void;
+    handleEnter: React.KeyboardEventHandler<HTMLDivElement>;
     relatedProjects: any;
 
 }
 // const Project = (props: ProjectProps) => (
 const Project = (
-    {data, handleClose, handleClick, relatedProjects}: ProjectProps) => (
+    {data, handleClose, handleClick, handleEnter, relatedProjects}: ProjectProps) => (
     <div className="project--overlay">    
         <div id='top-of-overlay'></div>
             <div className="x--image--container">
@@ -73,6 +74,7 @@ const Project = (
                                         item.id,
                                         relatedProjects)
                                     }
+                                handleEnter={undefined}
                                 {...item}
                             />
                         </div>
