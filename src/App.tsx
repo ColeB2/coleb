@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, KeyboardEventHandler } from 'react'
 import './App.css'
 
 import Header from './components/Header/Header';
@@ -99,6 +99,16 @@ function App() {
             }
         })
     }
+        
+    function handleEnter(id: number, data:projectType[], e: React.KeyboardEvent<HTMLDivElement>) {
+        if (e.key == "Enter") {
+            data.forEach((item) => {
+                if (item.id === id) {
+                    setCurrentProject(() => item)
+                }
+            })
+        }
+    }
 
     function handleClickOverlay(id: number, data: projectType[]) {
         data.forEach((item) => {
@@ -137,6 +147,7 @@ function App() {
                         title="Featured Projects"
                         data={pinnedProjectData}
                         handleClick={handleClick}
+                        handleEnter={handleEnter}
                     />
                     {/* Rest of projects based on tech. */}
                     {
@@ -149,6 +160,7 @@ function App() {
                                 title={item.title}
                                 data={item.data}
                                 handleClick={handleClick}
+                                handleEnter={handleEnter}
                             />
                             )
                         })

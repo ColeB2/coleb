@@ -19,6 +19,9 @@ interface CarouselProps {
     title: string;
     data: projectType[];
     handleClick: (id: number, data: projectType[]) => void;
+    handleEnter: (id: number, data: projectType[], e: React.KeyboardEvent<HTMLDivElement>) => void;
+    // handleEnter: React.KeyboardEventHandler<HTMLDivElement>
+    // handleEnter: (id: number, data: projectType[]) => void;
 }
 
 const Carousel = (props: CarouselProps) => 
@@ -53,6 +56,13 @@ const Carousel = (props: CarouselProps) =>
                                         item.id,
                                         props.data
                                         )}
+                                handleEnter={
+                                    (e: React.KeyboardEvent<HTMLDivElement>) => props.handleEnter(
+                                        item.id,
+                                        props.data,
+                                        e
+                                    )
+                                }
                                 {...item}
                             />
                         </SwiperSlide>
