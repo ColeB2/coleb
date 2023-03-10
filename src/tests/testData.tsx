@@ -55,6 +55,7 @@ export const PROJECT_DATA = [
         technologies:["TypeScript","JavaScript","HTML","CSS"],
         pinned: true
     },
+
     {
         id: 5,
         title: 'Project Name5',
@@ -111,7 +112,6 @@ export const PROJECT_DATA = [
         technologies:["TypeScript","JavaScript","HTML","CSS"],
         pinned: false
     }
-
 ]
 export const PROJECT_ITEM: projectType = {
     id: 0,
