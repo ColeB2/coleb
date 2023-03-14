@@ -1,6 +1,5 @@
 {
-    "getProjects": {
-        "projectsData" :[
+        "_items" :[
     {
         "id": 1,
         "title": "Project Name",
@@ -107,5 +106,4 @@
         "pinned": false
     }
         ]
-    }
 }
