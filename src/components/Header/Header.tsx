@@ -1,16 +1,16 @@
 import React from "react";
 import './Header.css';
 
+import titleCard from '../../images/coleb.png'
+
 const Header = () => (
     <header className="portfolio--header">
-        <h1 className="name">
             <a
-                className="link"
+                className="header-link"
                 href="https://coleb.pythonanywhere.com/portfolio"
             >
-                Cole B  
+                <img src={titleCard} alt="Text - Cole B"></img>
             </a>
-        </h1>
     </header>
 );
 
