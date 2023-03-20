@@ -7,19 +7,32 @@ describe('The Main Page', () => {
     it('sucessfully loads', () => {
         cy.visit('/')
         cy.contains('Featured Projects')
+        //Overlay shouldn't low
+        cy.get('[class="project--overlay"]').should('not.exist')
     })
+
 
     it('sucessfully clicks and loads up project', () => {
         cy.visit('/')
         cy.contains('Featured Projects')
         cy.get('[alt="Project Name"]').first().click()
+
+        // Check overlay items all exist.
+        cy.get('[class="project--overlay"]').should('exist')
+        cy.get('[class="project--title"]').and("contain", 'Project Name')
+        cy.get('[class="project--data"]').and("contain", 'Project description 1 here.')
+        cy.get('[href="https://path.to/github1"]')
+        cy.get('[href="https://path.to/project1"]')
+        cy.get('[class="project--related--item"]').should('have.length', 6)
     })
 
     it('sucessfully clicks a project, and closes project via X button', () => {
         cy.visit('/')
         cy.contains('Featured Projects')
         cy.get('[alt="Project Name"]').first().click()
+        cy.get('[class="project--overlay"]').should('exist')
         cy.get('[alt="X icon to close"]').click()
+        cy.get('[class="project--overlay"]').should('not.exist')
     })
     it('sucessfully clicks a project, and selects a featured project', () => {
         cy.visit('/')
