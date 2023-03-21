@@ -58,7 +58,6 @@ describe('The Main Page', () => {
         const element = win.document.elementFromPoint(posX, posY) as HTMLElement;
         cy.wrap(element).trigger('click', options);
         })
-
     })
 
 })
