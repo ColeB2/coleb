@@ -78,6 +78,9 @@ function App() {
                         item.title)
                 )
             })
+            // randomly sort
+            item.data.sort(() => (Math.random() - 0.5));
+            // item.data.sort((a,b) => a.order - b.order)
             ret.push(item)
         }
         setFilteredProjectData(ret)
@@ -85,9 +88,11 @@ function App() {
 
     //pinned data
     useEffect(() => {
-        setPinnedProjectData(portfolioData.filter((project) => {
+        const newPinnedPortfolio: projectType[] = portfolioData.filter((project) => {
             return (project.pinned === true)
-        }))
+        })
+        newPinnedPortfolio.sort((a, b) => a.order - b.order);
+        setPinnedProjectData(newPinnedPortfolio)
     }, [portfolioData])
 
 
