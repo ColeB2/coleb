@@ -85,9 +85,11 @@ function App() {
 
     //pinned data
     useEffect(() => {
-        setPinnedProjectData(portfolioData.filter((project) => {
+        const newPinnedPortfolio: projectType[] = portfolioData.filter((project) => {
             return (project.pinned === true)
-        }))
+        })
+        newPinnedPortfolio.sort((a, b) => a.order - b.order);
+        setPinnedProjectData(newPinnedPortfolio)
     }, [portfolioData])
 
 
