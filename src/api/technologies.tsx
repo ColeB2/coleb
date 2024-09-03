@@ -52,3 +52,17 @@ export const techData: techDataType[] = [
         "order": 99
     }
 ]
+
+export const techMap = {
+    1: 'Python',
+    2: 'Django',
+    3: 'HTML',
+    4: 'CSS',
+    5: 'JavaScript',
+    6: 'Bootstrap',
+    7: 'Pygame',
+    8: 'React',
+    9: 'Djano REST Framework',
+    11:'TypeScript',
+    12:'TailwindCSS'
+}
