@@ -14,7 +14,7 @@ import {
 } from './types/customTypes'
 
 import api from './api/projects';
-import { techData } from './api/technologies';
+import { techData, techMap } from './api/technologies';
 
 
 
@@ -41,10 +41,20 @@ function App() {
         const fetchProjects = async () => {
             try {
                 const response = await api.get('/projects')
-                // console.log('------------RESPONSE-----------',response)
+                console.log('------------RESPONSE-----------',response)
                 // console.log('----------------------------------------------')
+                // DETA FAST API
+                // const data = response.data;
+                // const items = data["_items"];
+                // PYTHONANYWHERE DJANGO API
                 const data = response.data;
-                const items = data["_items"];
+                const items = data
+                console.log(items)
+                items.forEach((proj: projectType) => {
+                    const newTech = proj.technologies.map((tech) => techMap[tech])
+                    proj.technologies = newTech
+                })
+                console.log(items)
                 setPortfolioData([...items])
                 setLoading(false)
             } catch (err: any) {
@@ -72,6 +82,7 @@ function App() {
                 data: []
             }
             item.data = portfolioData.filter((project) => {
+                // console.log(project.technologies)
                 return (
                     project.technologies &&
                     Object.values(project.technologies).includes(
