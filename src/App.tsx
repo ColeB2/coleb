@@ -51,6 +51,7 @@ function App() {
                 const items = data
                 console.log(items)
                 items.forEach((proj: projectType) => {
+                    // @ts-ignore
                     const newTech = proj.technologies.map((tech) => techMap[tech])
                     proj.technologies = newTech
                 })
